@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <link rel="icon" type="image/png" href="res/img/icon-192.png" size="32x32">
+
+    <link rel="stylesheet" href="res/style/main.css">
+    <link rel="stylesheet" href="res/fontawesome/css/all.min.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="title">
+            <img src="res/img/logo.svg" alt="Logo" id="logo">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <div id="userInfo">
+                            <span id="welcomeText"></span>
+                        </div>
+                    </li>
+                    <li><a href="">Kezdőlap</a></li>
+                    <li><a href="">Riport</a></li>
+                    <li class="separate">
+                        <a href="">Bejelentkezés</a>
+                    </li>
+                    <li><a href="">Kijelentkezés</a></li>
+                    <li>
+                        <a href="">
+                            <i class="fa-solid fa-gear"></i>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ref.</th>
+                        <th>Állapot</th>
+                        <th>Érkezett</th>
+                        <th>Elment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>GHIBLI260404PL001</td>
+                    <td>rakodás alatt</td>
+                    <td>2026-04-22 15:38</td>
+                    <td>2026-04-22 15:38</td>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <aside>
+        <nav>
+            <ul class="container">
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Kezdőlap</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Hivás</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-person-circle-plus"></i>
+                        <span>Felvétel</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-id-card"></i>
+                        <span>Adatok</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <script>
+
+        let nav = document.querySelector('header nav')
+        nav.onclick = (() => nav.classList.toggle('visible'));
+        
+        
+        const username = sessionStorage.getItem("user");
+        if (username) {
+            document.getElementById("welcomeText").textContent = `Üdv, ${username}!`;
+        }
+        else {
+            document.getElementById("welcomeText").textContent = "Nincs bejelentkezve";
+        }
+    </script>
+
+</body>
+</html>
